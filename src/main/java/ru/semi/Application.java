@@ -12,7 +12,8 @@ public class Application {
 		SlackApiService slackApiService = new SlackApiService();
 		EventService eventService = new EventService(slackApiService);
 		FileTrackerService fileTracker = new FileTrackerService(eventService);
-		fileTracker.startFollowing(30, args[0]);
+		String filePath = args[0];
+		fileTracker.startFollowing(30, filePath);
 	}
 
 
