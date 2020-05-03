@@ -1,0 +1,11 @@
+version: 3
+services:
+  fileTrack:
+    image: host.com/fileTrack-service:master
+    environment:
+      - SLACK_API_BOT_TOKEN=your_token_here
+    volumes:
+      - /opt/app/logs:/logs
+      - /opt/fileTrack/config/fileTracker.yml:/config/fileTracker.yml
+      - /opt/fileTrack/data.json:/data.json
+
