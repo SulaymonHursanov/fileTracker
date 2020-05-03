@@ -22,7 +22,8 @@ public class EventService {
 		log.info("sending messages");
 		try {
 			for (Message message : messages) {
-				slackApiService.postMessage(channel, message.getText() + " count: " + message.getDuplicateCount());
+				String text = message.getFileName() + " " + message.getText() + " count: " + message.getDuplicateCount();
+				slackApiService.postMessage(channel, text);
 			}
 			log.info("messages are sent successfully");
 		} catch (SlackApiException | IOException e) {

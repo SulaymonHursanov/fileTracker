@@ -4,6 +4,9 @@ import com.slack.api.Slack;
 import com.slack.api.methods.SlackApiException;
 
 import java.io.IOException;
+import java.util.Objects;
+
+import static java.util.Objects.requireNonNull;
 
 public class SlackApiService {
 
@@ -12,6 +15,7 @@ public class SlackApiService {
 
 	public SlackApiService() {
 		this.token = System.getenv("SLACK_API_BOT_TOKEN");
+		requireNonNull(token, "Environment SLACK_API_BOT_TOKEN is empty or null");
 		this.slack = Slack.getInstance();
 	}
 

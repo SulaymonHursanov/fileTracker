@@ -11,14 +11,16 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class Message {
 
-	public Message(String text) {
+	public Message(String text,String fileName) {
 		this.text = text;
+		this.fileName = fileName;
 		this.setDuplicateCount(1);
 		this.setFirstUpdate(LocalDateTime.now());
 		this.setLastUpdate(LocalDateTime.now());
 	}
 
 	private String text;
+	private String fileName;
 	private Integer duplicateCount;
 	private LocalDateTime lastUpdate;
 	private LocalDateTime firstUpdate;
