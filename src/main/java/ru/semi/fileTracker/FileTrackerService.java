@@ -25,6 +25,7 @@ public class FileTrackerService {
 
 	private final EventService eventService;
 	private ObjectMapper objectMapper;
+	private final String DATA_PATH = "data/data.json";
 
 	public FileTrackerService(EventService eventService) {
 		this.eventService = eventService;
@@ -81,12 +82,12 @@ public class FileTrackerService {
 	}
 
 	private void updateFilePositionOnStore(Map<String, Integer> filePosition) throws IOException {
-		File file = new File("data.json");
+		File file = new File(DATA_PATH);
 		objectMapper.writeValue(file, filePosition);
 	}
 
 	private Map<String, Integer> getFilePositionFromStore() throws IOException {
-		File file = new File("data.json");
+		File file = new File(DATA_PATH);
 		if (!file.exists() && file.createNewFile()) {
 			objectMapper.writeValue(file, new HashMap<String, Integer>());
 		}

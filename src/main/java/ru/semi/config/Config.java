@@ -14,6 +14,9 @@ public class Config {
 		Map<String, List<String>> properties = new HashMap<>();
 		String property = null;
 		for (String line : lines.collect(Collectors.toList())) {
+			if (line.isEmpty()) {
+				continue;
+			}
 			if (!(line.trim()).startsWith("-")) {
 				property = line.replace(":", "");
 				properties.put(property, new ArrayList<>());
